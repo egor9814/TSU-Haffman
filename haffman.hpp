@@ -8,6 +8,6 @@
 #include <string>
 #include <fstream>
 
-int haffman(char &type, std::ifstream &in, std::ofstream &out);
+int huffman(char &type, std::ifstream &in, std::ofstream &out);
 
 #endif //TSU_HAFFMAN_HAFFMAN_HPP

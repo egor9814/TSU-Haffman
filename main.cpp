@@ -15,7 +15,7 @@ int haff(int argc, const char **argv) {
         return -1;
     } else {
         string type = argv[1];
-        if (type != "e" || type != "d") {
+        if (type != "e" && type != "d") {
             cerr << "invalid type: " << type << endl;
             return -2;
         }
@@ -34,21 +34,23 @@ int haff(int argc, const char **argv) {
             return -3;
         }
 
-        return haffman(type[0], in, out);
+        return huffman(type[0], in, out);
     }
 }
 
 
 int main(int argc, char *argv[]) {
-    const char *encode[3]{
+    const char *encode[4]{
+            argv[0],
             "e",
             "e.test.txt",
             "e.test.out.txt"
     };
-    const char *decode[3]{
+    const char *decode[4]{
+            argv[0],
             "d",
             "d.test.txt",
             "d.test.out.txt"
     };
-    return haff(3, encode);
+    return haff(4, decode);
 }

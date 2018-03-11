@@ -38,6 +38,8 @@ BoolVector &BoolVector::operator=(const BoolVector &bv) {
 
 
 void BoolVector::append(char c) {
+    if (has(c))
+        return;
     auto v = new byte[bytes + 1];
     for (auto i = 0UL; i < bytes; i++) {
         v[i] = vector[i];
@@ -49,7 +51,7 @@ void BoolVector::append(char c) {
 }
 
 void BoolVector::append(BoolVector &bv) {
-    auto v = new byte[bytes + bv.bytes];
+    /*auto v = new byte[bytes + bv.bytes];
     for (auto i = 0UL; i < bytes; i++) {
         v[i] = vector[i];
     }
@@ -58,7 +60,10 @@ void BoolVector::append(BoolVector &bv) {
     }
     bytes += bv.bytes;
     delete[] vector;
-    vector = v;
+    vector = v;*/
+    for (auto i = 0UL; i < bv.count(); i++) {
+        append(bv[i]);
+    }
 }
 
 char &BoolVector::operator[](unsigned long i) {
